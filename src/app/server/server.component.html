@@ -1,4 +1,7 @@
-<p>hi</p>
-<p>the only thing that you have to do in string interpolation is to make sure it resolves as a string</p>
-<p>except note that the string interpolation method will convert it for you, which is nice</p>
-<p>server with ID {{ serverId }}</p>
+<!-- both ngStyle and ngClass are referring to html attributes
+custom ones, obs
+and they both take a javascript object as an argument -->
+<p
+  [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">
+  Server with ID {{ serverId }} is {{ serverStatus }}</p>

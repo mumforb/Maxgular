@@ -1,0 +1,23 @@
+<ol>
+  <li>add a button that says display details.</li>
+  <li>add a paragraph with any content</li>
+  <li>toggle the display of that paragraph with the button</li>
+  <li>log all button clicks in an array and output that array below the message (log timestamp or increment or something)</li>
+  <li>starting at x number of logs, change the style</li>
+</ol>
+<button
+  class="btn btn-primary"
+  (click)="toggleMessage($event)"
+  >
+  Display Details
+</button>
+<p [ngClass]="{hidden: hiddenMessage}">Message that will either show or not show.</p>
+
+<ul>
+  <!-- this little fanciness gets us access to the index of the loop, which we can then use for logic below -->
+   <li
+    *ngFor="let timestamp of timestamps; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 4}"
+    >{{ timestamp }}</li>
+</ul>

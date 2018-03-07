@@ -1,0 +1,15 @@
+<p>
+  create a username field that tracks keystrokes, doesn't allow a click unless there's at least one character in it, and then clear out the field once submit has been clicked
+</p>
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="username">
+  
+<p>your username is {{ username }}</p>
+<button
+  class="btn btn-primary"
+  [disabled]="username === ''"
+  (click)="submit()"
+>Submit</button>
