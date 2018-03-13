@@ -1,0 +1,11 @@
+<ul>
+  <li>create new components GameControl, Odd and Even</li>
+  <li>game control should have start and stop the game</li>
+  <li>when starting the game, an event holding an incrementing number (use setTimeout()) should get emitted each second</li>
+  <li>the event should be listenable from outside the component</li>
+  <li>when stopping the game, no more events should get emitted (use clearTimeout()</li>
+  <li>a new odd component should get created for every odd number emitted, same for even</li>
+  <li>simply output odd number (wrapped in p)</li>
+  <li>style output differently depending on odd or even</li>
+</ul>
+<app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>

@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <!-- a hook that's an angular directive
+    it knows to put anything you find in between opening and closing tags of your custom directives -->
+    <!-- excellent for reusable components -->
+    <ng-content></ng-content>
   </div>
 </div>

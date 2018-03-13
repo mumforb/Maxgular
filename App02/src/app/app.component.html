@@ -1,4 +1,7 @@
 <div class="container">
+  <!-- assignment 4 whatnot and foolishness -->
+  <app-assignment-4></app-assignment-4>
+  
   <!-- the custom property on app-cockpit is, like this
   {serverCreated} is an (custom) event listener
   onServerAdded is a method bound to the component
@@ -7,7 +10,14 @@
   <div class="row">
     <div class="col-xs-12">
       <app-server-element *ngFor="let serverElement of serverElements"
-      [srvElement]="serverElement"></app-server-element>
+      [srvElement]="serverElement">
+        <!-- by default, everything you put between the opening and closing tags
+        of your own elements are lost, but ... -->
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+      </app-server-element>
     </div>
   </div>
 </div>

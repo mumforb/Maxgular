@@ -2,16 +2,30 @@
     <div class="col-xs-12">
       <p>Add new Servers or blueprints!</p>
       <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
+      <!-- old two-way binding way <input type="text" class="form-control" [(ngModel)]="newServerName">
+        the # is a local reference. it contains all the information for that element
+        you can only use them in the template, but you can use them wherever you want in the template
+      -->
+      <input
+        type="text"
+        class="form-control"
+        #serverNameInput
+      >
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <!-- again switching two-way binding to a local reference <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+      <input
+        type="text"
+        class="form-control"
+        #serverContentInput
+      >
       <br>
+              <!-- the argument here is the local reference defined in the input up above -->
       <button
         class="btn btn-primary"
-        (click)="onAddServer()">Add Server</button>
+        (click)="onAddServer(serverNameInput)">Add Server</button>
       <button
         class="btn btn-primary"
-        (click)="onAddBlueprint()">Add Server Blueprint</button>
+        (click)="onAddBlueprint(serverContentInput)">Add Server Blueprint</button>
     </div>
   </div>
   <hr>
