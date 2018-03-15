@@ -22,6 +22,9 @@ export class GameControlComponent implements OnInit, DoCheck {
     }, 1000);
   }
   
+  onPauseGame() {
+    clearInterval(this.interval);
+  }
     ngDoCheck() {
     // this one gets fired whenever something changed at all anywhere; property value, anything
   }
