@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- routerLinkActive is a custom, built-in directive we get from angular for stuff like this -->
+        <!-- what's the difference between, like routerLinkActive="whatever" and [routerLinkActive="whatever"]? -->
+        <!-- looks like if you pass a string, the non-square-brackets syntax is fine. -->
+        <!-- if you pass a string, though, you need the square brackets -->
+        <!-- routerLinkActiveOptions is another custom item that comes with angular -->
+        <li role="presentation" 
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+        ><a [routerLink]="['/']">Home</a></li>
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/servers']">Servers</a></li>
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/users']">Users</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- this router-outlet component automatically picks up the router -->
+      <!-- it appears that it comes 'free' with the built-in router -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

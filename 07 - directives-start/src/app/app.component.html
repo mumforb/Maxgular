@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show {{ !onlyOdd ? "odd" : "even" }} numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <!-- you can't have more than one structural directive on the same element
+          that means, like, no ngIf and also ngFor -->
+        <!-- the presence of ngClass and ngStyle here are redundant, only for illustrative purposes -->
+
+        <!-- and this got phased out by the custom directive we ended up building below, the unless directive -->
+        <!--
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: onlyOdd}"
+            [ngStyle]="{backgroundColor: onlyOdd ? 'yellow' : 'blue'}"
+            *ngFor="let odd of oddNumbers">
+            {{ odd }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li class="list-group-item"
+            *ngFor="let even of evenNumbers">
+            {{ even }}
+          </li>
+        </div>
+      -->
+      <!-- the * automatically makes this available for property binding, like, with the *
+        but that means that the custom directive name needs to match the selector given to it
+        presumably by the CLI -->
+      <div *appUnless="onlyOdd">
+        <li
+          class="list-group-item"
+          [ngClass]="{odd: onlyOdd}"
+          [ngStyle]="{backgroundColor: onlyOdd ? 'yellow' : 'blue'}"
+          *ngFor="let even of evenNumbers">
+          {{ even }}
+        </li>
+      </div>
+      </ul>
+      <p appBasicHighlight>style me with basic directive</p>
+      <p appBetterHighlight>style me with better directive</p>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="20">Value is 20</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchCase="default">Value is default</p>
+      </div>
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
