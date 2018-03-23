@@ -14,7 +14,7 @@ export class ServersComponent implements OnInit {
   // it keeps metainformation about the route you're on
   // probably good for accessing bits of information you're carrying around in the URL
   constructor(
-    private serversService: ServersService, 
+    private serversService: ServersService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -27,5 +27,4 @@ export class ServersComponent implements OnInit {
     // this would be useful for nested areas and the like
     this.router.navigate(['/servers'], {relativeTo: this.route});
   }
-
 }

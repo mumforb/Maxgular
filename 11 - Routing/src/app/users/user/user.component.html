@@ -1,2 +1,5 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID {{ user.id }} loaded.</p>
+<p>User name is {{ user.name }}</p>
+<hr />
+<!-- how you construct a multiple-level link -->
+<a [routerLink]="['/users', 10, 'Horatio']">Load Horatio</a>

@@ -14,10 +14,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServers(){
+  onLoadServers(id: number){
     console.log('hi');
     // navigate is a built-in method that comes for free
     // pass an array, it's like the one that goes in the templates
-    this.router.navigate(['/servers']);
+    // this got filled out with every type of URL dealie, the array, the queryparams, the fragment, awesome
+    this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit: '1'}, fragment: 'loading'});
   }
 }
